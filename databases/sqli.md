@@ -117,3 +117,4 @@ dbms_pipe.receive_message(('a'),10)
 
 ### SQLi Cheat Sheet
 https://portswigger.net/web-security/sql-injection/cheat-sheet
+[Blind SQLi example code](https://github.com/cyberheisen/Penetration-Testing-Notes/blob/main/development/python/custom_functions/bsqli.py)
