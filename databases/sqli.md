@@ -1,3 +1,5 @@
+*\*When passing the '--' commenting syntax in quotes, make sure to add a space after: '-- '*
+
 ### Basic authentication bypass
 ```
 # Enter in the username field
