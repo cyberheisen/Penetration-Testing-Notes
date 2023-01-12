@@ -5,7 +5,7 @@ def p(text,type="step",tabs = 0):
     
     # declared color variables
     tab = "    " # 4 spaces
-    step = "\033[1m[+]\033[22m "  # Use for showing action, like starting a service
+    step = "\033[1m[+]\033[22m "  # Default - Use for showing action, like starting a service
     backstep = "\033[1m[-]\033[22m " # Used for showing negative action, live stopping a service
     success = "\033[32;1m[\u0394]\033[22m " # Used to show something was successful
     error = "\033[31;1m[!]\033[22m " # Used for error messages
