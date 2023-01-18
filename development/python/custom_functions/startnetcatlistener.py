@@ -2,8 +2,11 @@ import subprocess
 
 def startNetcatListener(port,path='.'):
     print("[+] Starting netcat listener")
-    proc = subprocess.Popen('%s/nc -lvp %s' % (path,port), shell=True)
-    return proc
+    try:
+        proc = subprocess.Popen('%s/nc -lvp %s' % (path,port), shell=True)
+        return proc
+    except Exception as error:
+        print('something went wrong: %s' % error)
 
 port = '4444'
 
