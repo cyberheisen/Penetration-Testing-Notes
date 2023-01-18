@@ -1,9 +1,14 @@
-import subprocess
+from subprocess import Popen, PIPE
 import psutil
+import time
 
-def startWebServer(port):
-    print("[+] starting webserver")
-    webserver = subprocess.Popen('/usr/bin/python3 -m http.server %s' % port, shell=True)
+def startWebServer(port,version='standard'):
+    print("[+] starting %s webserver" % version)
+    if version.lower() == 'upload':
+        webserver = subprocess.Popen('python3 -m uploadserver %s' % port, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
+    else:        
+        webserver = subprocess.Popen('python3 -m http.server %s' % port, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
+    time.sleep(2)
     return webserver
 
 def stopWebServer(webserver):
@@ -14,7 +19,10 @@ def stopWebServer(webserver):
     parent.kill()
     return
   
- port = '8080'
+port = '8080'
+version = 'upload'
+webserver = startWebServer(port,version)
+# if using the upload server, files can be uploaded using curl
+# curl -X POST url/upload -F files=@'file1.txt'
 
-webserver = startWebServer(port)
 stopWebServer(webserver)
