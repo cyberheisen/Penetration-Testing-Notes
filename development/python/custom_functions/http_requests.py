@@ -5,7 +5,7 @@ proxies = {'http':'http://127.0.0.1:8080','https':'https://127.0.0.1:8080'}
 timeout = 5 # This value can be modified for time based blind SQLi
 headers = {'Content-Type':'application/x-www-form-urlencoded'}
 
-def http_request(url,method=None,data=None,headers=None,proxies=None,timeout=None):
+def http_request(url,method='get',data=None,headers=None,proxies=None,timeout=None):
      
     try:
         # POST Method        
