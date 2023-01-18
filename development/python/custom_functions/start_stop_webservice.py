@@ -5,9 +5,9 @@ import time
 def startWebServer(port,version='standard'):
     print("[+] starting %s webserver" % version)
     if version.lower() == 'upload':
-        webserver = subprocess.Popen('python3 -m uploadserver %s' % port, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
+        webserver = Popen('python3 -m uploadserver %s' % port, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
     else:        
-        webserver = subprocess.Popen('python3 -m http.server %s' % port, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
+        webserver = Popen('python3 -m http.server %s' % port, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
     time.sleep(2)
     return webserver
 
