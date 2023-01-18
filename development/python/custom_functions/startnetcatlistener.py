@@ -7,4 +7,4 @@ def startNetcatListener(port,path='.'):
 
 port = '4444'
 
-startNetcatListener(port,'/bin')
+proc = startNetcatListener(port,'/bin')
