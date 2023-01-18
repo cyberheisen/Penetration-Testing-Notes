@@ -2,6 +2,8 @@ from subprocess import Popen, PIPE
 import psutil
 import time
 
+# for the upload functionality: pip3 install uploadserver
+
 def startWebServer(port,version='standard'):
     print("[+] starting %s webserver" % version)
     if version.lower() == 'upload':
