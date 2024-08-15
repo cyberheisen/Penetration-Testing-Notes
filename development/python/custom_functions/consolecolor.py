@@ -27,7 +27,7 @@ def p(text,type="step",tabs = 0):
         text = backstep+text
     if type == "flag":
         text = flag+text
-    if type == "info"
+    if type == "info":
         text = info+text
     else:
         text = text
